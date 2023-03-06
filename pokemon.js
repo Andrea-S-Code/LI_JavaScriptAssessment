@@ -40,12 +40,12 @@ function takeDamage(damage) {
 *(the opponent being attacked). This method should call the `takeDamage()` method of the opposing `Pokemon` and provide 
 *the appropriate damage as an argument.
 */
-function attackOpponent(victum) {
-    if (this.attack <= victum.defense){
+function attackOpponent(opponent) {
+    if (this.attack <= opponent.defense){
        victum.takeDamage(1);
     } else{
-        let damage = this.attack - victum.defense;
-        victum.takeDamage(damage);
+        let damage = this.attack - opponent.defense;
+        opponent.takeDamage(damage);
     }
 }
 
