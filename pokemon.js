@@ -1,26 +1,37 @@
 // Task 1: Create a Pokemon object
-const Pokemon = {
+const myPokemon = {
     name: String,
     attack: Number,
     defense: Number,
     health: Number,
-    type: String
+    healthperm: Number,
+    type: String,
+    takeDamage: Number,
+    attackOpponent: Number,
+    display: String
 };
-const charmander = new Pokemon("charmander", 12, 8, 30, "fire");
-        console.log(charmander.name);    // charmander
-        console.log(charmander.attack);  // 12
-        console.log(charmander.defense); // 8
-        console.log(charmander.health);  // 30
-        console.log(charmander.type);    // fire
+
+function Pokemon(name, attack, defense, health, type) {
+    this.name = name;
+    this.attack = attack;
+    this.defense = defense;
+    this.health = health;
+    this.healthperm = health;
+    this.type = type;
+    this.takeDamage = takeDamage;
+    this.attackOpponent = attackOpponent;
+    this.display = display;
+  }
+
 
 /**
  * Task 2: Implement a `takeDamage()` method for the Pokemon which takes a number as an argument and reduces the `.health` of the 
 *`Pokemon` by that number.
 */
 function takeDamage(damage) {
-    health = health - damage;
-    if (health <= 0){
-        health = 0;
+    this.health = this.health - damage;
+    if (this.health <= 0){
+        this.health = 0;
     }
 }
 
@@ -30,10 +41,10 @@ function takeDamage(damage) {
 *the appropriate damage as an argument.
 */
 function attackOpponent(victum) {
-    if (Pokemon.attack <= victum.defense){
+    if (this.attack <= victum.defense){
        victum.takeDamage(1);
     } else{
-        damage = Pokemon.attack - victum.defense;
+        let damage = this.attack - victum.defense;
         victum.takeDamage(damage);
     }
 }
@@ -44,8 +55,9 @@ function attackOpponent(victum) {
  * by the `.health` the `Pokemon` was initialized with.
  */
 function display() {
-    display = Pokemon.name.isUppercase() + "(" + Pokemon.type.isUppercase() + ")" + Pokemon.health + "/" + Pokemon.health;
-    console.log(display);
+    healthperm = this.healthperm;
+    display = (this.name).toUpperCase() + " (" + (this.type).toUpperCase() + ") " + this.health + "/" + healthperm;
+    return display;
 }
 
 // Don't edit this line!
